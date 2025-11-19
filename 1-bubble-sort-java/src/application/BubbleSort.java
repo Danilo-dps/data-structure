@@ -10,7 +10,7 @@ public class BubbleSort {
 
             // carregando os números no vetor
             for (i = 0; i <= 4; i++) {
-                System.out.println("Digiteo " + (i + 1) + "º número : ");
+                System.out.println("Digite o " + (i + 1) + "º número : ");
                 X[i] = scanner.nextInt();
             }   
             
