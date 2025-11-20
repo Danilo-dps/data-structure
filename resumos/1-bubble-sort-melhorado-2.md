@@ -1,15 +1,32 @@
-# BUBBLE SORT 
----
+## 📝 **BUBBLE SORT MELHORADO 2**
 
-**O algoritmo Bubble Sort implementado:**
-1. **Entrada de dados**: Um loop coleta 5 números do usuário e os armazena no array
-2. **Ordenação**: Dois loops aninhados comparam cada elemento com seu vizinho
-3. **Troca**: Se um elemento for maior que o próximo, eles trocam de posição
-4. **Repetição**: Este processo se repete até que todos os elementos estejam ordenados
-5. **Saída**: O array ordenado é exibido
+**Estrutura do algoritmo:**
+1. **Entrada de dados**: Coleta 5 números via Scanner
+2. **Loop principal**: `while` com duas condições:
+   - Controle de passagens (`n <= 5`)
+   - **Flag de otimização** (`swap == 1`)
+3. **Comparação e troca**: `if(X[i] < X[i+1])` + mecanismo de troca com `aux`
+4. **Detecção de ordenação**: Se nenhuma troca ocorrer, algoritmo para
+5. **Saída**: Exibe array ordenado
 
-- Fazendo uso de uma variável **auxiliar(Mecanismo de troca)**, é feito uma comparação no if, caso o número atual seja maior que o próximo número, a variável auxiliar recebe esse número maior, a posição que está com o número maior passa a receber o número menor, e a posição do número menor passa a receber o número maior que foi passado para a variável auxiliar.
+**Mecanismos chave:**
+- **`aux`**: Variável auxiliar para **troca de valores** entre posições
+- **`swap`**: Flag que indica se **houve trocas** na passagem atual
+- **Otimização**: Interrompe execução quando detecta que o array já está ordenado
 
-- Essa versão do **buble sort** tem como estrutura de ordenação, mais uma variável **auxiliar**, que nesse caso, serve como valor para a condição de percorrer ou não todo o array. A ordenação começa, e faz uma atualização no valor dela antes de ir para o for, e outra quando a condição do `if` é satisfeita, ela serve como guia, indicando se o vetor já está ordenado ou não.
+**Vantagem**: Evita passagens desnecessárias quando o array já está ordenado!
 
-- Note que de primeiro momento, sempre é feito o fluxo de percorrer o vetor, pelo menos uma vez, e nesse fluxo, toda a ordenação que deverá ser feita, ocorre, tornando o fluxo otimizado, porque o `for` interno irá percorrer todo o `array`
+### **Sobre a variável auxiliar:**
+
+```java
+aux = X[i];          // variável auxiliar para troca
+swap = 1;            // flag de controle (não é auxiliar para troca)
+```
+- **`aux`** → variável auxiliar para **troca de valores**
+- **`swap`** → variável de **controle/flag** para otimização
+
+**Sequência do while:**
+1. `swap = 0` → assume que não haverá trocas
+2. Percorre o array com `for` 
+3. Se encontrar elementos fora de ordem: `swap = 1`
+4. Se após o `for` completo `swap == 0` → vetor ordenado, **para o loop**
