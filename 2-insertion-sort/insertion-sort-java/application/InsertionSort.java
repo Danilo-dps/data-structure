@@ -1,12 +1,12 @@
 
 import java.util.Scanner;
 
-public class BubbleSort {
+public class InsertionSort {
     public static void main(String args[]) {
         try (Scanner scanner = new Scanner(System.in)) {
 
             int X[] = new int[5];
-            int n, i, aux;
+            int i, j, eleito;
 
             // carregando os números no vetor
             for (i = 0; i <= 4; i++) {
@@ -15,18 +15,21 @@ public class BubbleSort {
             }   
             
             // ordenando de forma crescente
-            // laço com a quantidade de elementos do vetor
-            for (n = 1; n <= 5; n++) {
+            // laço com a quantidade de elementos do vetor -1
+            for (i = 1; i <= 4; i++) {
                 
-                // laço que percorre da primeira à
-                // penúltima posição do vetor
-                for (i = 0; i <= 3; i++) {
-                    if (X[i] > X[i + 1]) {
-                        aux = X[i];
-                        X[i] = X[i + 1];
-                        X[i + 1] = aux;
-                    }
+                eleito = X[i];
+                j = i - 1;
+                // laço que percorre os elementos à
+                // esquerda do número eleito
+                // ou até encontrar a posição  para 
+                // relocação do número eleito
+                // respeitando a ordenação
+                while( j>= 0 && X[j] > eleito){
+                    X[j+1] = X[j];
+                    j = j - 1;
                 }
+                X[j+1] = eleito;
             }   
             
             // mostrando o vetor ordenado
